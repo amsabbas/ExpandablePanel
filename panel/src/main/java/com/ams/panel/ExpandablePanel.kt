@@ -2,7 +2,6 @@ package com.ams.panel
 
 import android.content.Context
 import android.os.Handler
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.Animation
@@ -11,7 +10,6 @@ import android.view.animation.Transformation
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.view.ViewCompat
-import java.util.*
 
 class ExpandablePanel @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     RelativeLayout(context, attrs), View.OnClickListener {
@@ -85,8 +83,19 @@ class ExpandablePanel @JvmOverloads constructor(context: Context, attrs: Attribu
                 (mainView as TextView).setCompoundDrawablesWithIntrinsicBounds(
                     expandedResId, 0, 0, 0
                 )
-
         }
+    }
+
+    private fun setCollapseResource()
+    {
+        if (ViewCompat.getLayoutDirection(this@ExpandablePanel) == ViewCompat.LAYOUT_DIRECTION_LTR)
+            (mainView as TextView).setCompoundDrawablesWithIntrinsicBounds(
+                0, 0, collapseResId, 0
+            )
+        else
+            (mainView as TextView).setCompoundDrawablesWithIntrinsicBounds(
+                collapseResId, 0, 0, 0
+            )
     }
 
     override fun onFinishInflate() {
@@ -134,26 +143,12 @@ class ExpandablePanel @JvmOverloads constructor(context: Context, attrs: Attribu
             override fun onAnimationEnd(animation: Animation) {
                 if (isExpanded) {
                     if (expandedResId != 0) {
-                        if (ViewCompat.getLayoutDirection(this@ExpandablePanel) == ViewCompat.LAYOUT_DIRECTION_LTR)
-                            (mainView as TextView).setCompoundDrawablesWithIntrinsicBounds(
-                                0, 0, expandedResId, 0
-                            )
-                        else
-                            (mainView as TextView).setCompoundDrawablesWithIntrinsicBounds(
-                                expandedResId, 0, 0, 0
-                            )
+                      setExpandedResource()
                     }
                     mListener?.onExpandToggle(false, mainView, expandedView)
                 } else {
                     if (collapseResId != 0) {
-                        if (ViewCompat.getLayoutDirection(this@ExpandablePanel) == ViewCompat.LAYOUT_DIRECTION_LTR)
-                            (mainView as TextView).setCompoundDrawablesWithIntrinsicBounds(
-                                0, 0, collapseResId, 0
-                            )
-                        else
-                            (mainView as TextView).setCompoundDrawablesWithIntrinsicBounds(
-                                collapseResId, 0, 0, 0
-                            )
+                        setCollapseResource()
                     }
                     mListener?.onExpandToggle(true, mainView, expandedView)
                 }
