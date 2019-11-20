@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="panel">
+        <attr name="main_view" format="reference" />
+        <attr name="expanded_view" format="reference" />
+        <attr name="animation_duration" format="integer"/>
+        <attr name="more" format="reference"/>
+        <attr name="less" format="reference"/>
+    </declare-styleable>
+</resources>

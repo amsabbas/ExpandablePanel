@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ExpandablePanel</string>
+
+    <string name="sensors_title">Sensors</string>
+    <string name="sensors_accelerometer_title">Accelerometer</string>
+    <string name="sensors_accelerometer_value">200</string>
+    <string name="info_title">Info</string>
+    <string name="info_address">4762  Carolyns Circle</string>
+    <string name="info_location">35.305416,-1.339650</string>
+
+
+</resources>
