@@ -2,6 +2,26 @@
 
 ![test image size](/device-2019-11-20-123210.png) ![test image size](/device-2019-11-20-123233.png)
 
+
+# Download
+Add it in your root build.gradle at the end of repositories:
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+}
+```
+
+Add the dependency
+```
+dependencies {
+	        implementation 'com.github.amsabbas:ExpandablePanel:Tag'
+}
+```
+
+
 ## Usage
 ```
 <com.ams.panel.ExpandablePanel xmlns:panel="http://schemas.android.com/apk/res-auto"
