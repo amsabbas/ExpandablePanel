@@ -17,7 +17,7 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-	        implementation 'com.github.amsabbas:ExpandablePanel:Tag'
+	     implementation 'com.github.amsabbas:ExpandablePanel:1.0.1'
 }
 ```
 
